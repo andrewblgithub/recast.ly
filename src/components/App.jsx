@@ -9,6 +9,7 @@ class App extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.btnHandler = this.btnHandler.bind(this);
     this.searchHandler = this.searchHandler.bind(this);
+    this.txtHandler = this.txtHandler.bind(this);
   }
   clickHandler(e) {
     this.setState({
@@ -18,8 +19,8 @@ class App extends React.Component {
   btnHandler(props) {
     searchYouTube(this.state.keyword, this.searchHandler);
   }
-  txtHandler() {
-
+  txtHandler(e) {
+    console.log(e);
   }
   keyUpHandler(e) {
     //if keyval = 13
