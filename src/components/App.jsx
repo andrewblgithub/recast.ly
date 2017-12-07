@@ -7,7 +7,8 @@ class App extends React.Component {
       keyword: 'kirby'
     };
     this.clickHandler = this.clickHandler.bind(this);
-    this.btnHandler = this.btnHandler.bind(this)
+    this.btnHandler = this.btnHandler.bind(this);
+    this.searchHandler = this.searchHandler.bind(this);
   }
   clickHandler(e) {
     this.setState({
@@ -15,13 +16,19 @@ class App extends React.Component {
     });
   }
   btnHandler(props) {
-    searchYouTube(this.state.keyword);
+    searchYouTube(this.state.keyword, this.searchHandler);
   }
   txtHandler() {
 
   }
   keyUpHandler(e) {
     //if keyval = 13
+  }
+  searchHandler(e) {
+    this.setState({
+      videos: e,
+      video: e[0]
+    });
   }
   render() {
     return (

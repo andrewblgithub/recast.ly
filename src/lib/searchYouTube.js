@@ -1,4 +1,4 @@
-var searchYouTube = (keyword) => {
+var searchYouTube = (keyword, searchHandler) => {
   var keyword = keyword || 'kirby nintendo';
   let url = 'https://www.googleapis.com/youtube/v3/search/?q=' + 
       keyword + 
@@ -8,7 +8,7 @@ var searchYouTube = (keyword) => {
     url: url,
     type: 'GET', 
     success: function (data) {
-      console.log(data.items);
+      searchHandler(data.items);
     },
     error: function (data) {
       console.error('FAILURE!', data);
