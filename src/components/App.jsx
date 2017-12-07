@@ -11,19 +11,21 @@ class App extends React.Component {
     this.searchHandler = this.searchHandler.bind(this);
     this.txtHandler = this.txtHandler.bind(this);
   }
+  componentDidMount() {
+    console.log('something');
+  }
   clickHandler(e) {
     this.setState({
       video: e
     });
   }
-  btnHandler(props) {
-    searchYouTube(this.state.keyword, this.searchHandler);
+  btnHandler() {
+    this.props.searchYouTube(this.state.keyword, this.searchHandler);
   }
   txtHandler(e) {
-    console.log(e);
-  }
-  keyUpHandler(e) {
-    //if keyval = 13
+    this.setState({
+      keyword: e
+    });
   }
   searchHandler(e) {
     this.setState({
