@@ -3,22 +3,32 @@ class App extends React.Component {
     super(props);
     this.state = {
       videos: exampleVideoData,
-      video: exampleVideoData[0]
+      video: exampleVideoData[0],
+      keyword: 'kirby'
     };
-    console.log(this.state.video);
     this.clickHandler = this.clickHandler.bind(this);
+    this.btnHandler = this.btnHandler.bind(this)
   }
   clickHandler(e) {
     this.setState({
       video: e
     });
   }
+  btnHandler(props) {
+    searchYouTube(this.state.keyword);
+  }
+  txtHandler() {
+
+  }
+  keyUpHandler(e) {
+    //if keyval = 13
+  }
   render() {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><Search/></div>
+            <div><Search btnHandler={this.btnHandler} txtHandler={this.txtHandler} keyUpHandler={this.keyUpHandler}/></div>
           </div>
         </nav>
         <div className="row">
