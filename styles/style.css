@@ -1,7 +1,7 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 body {
-  background: #f1f1f1;
+  background: #ECE1DF;
 }
 
 .navbar {
@@ -10,8 +10,10 @@ body {
 }
 
 .navbar img {
-  height: 40px;
-  width: 50px;
+  width: 10%;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
 }
 
 .search-bar {
@@ -26,7 +28,7 @@ body {
 .search-bar .btn {
   border-radius: 2px;
   border-color: #d3d3d3;
-  background: #f8f8f8;
+  background: #ECE1DF;
   width: 20%;
   margin-left: -1px;
 }
@@ -60,6 +62,7 @@ body {
 .video-list-entry {
   font-size: 16px;
   padding: 8px;
+  cursor: pointer;
 }
 
 .video-list-entry-title {

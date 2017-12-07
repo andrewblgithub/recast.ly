@@ -41,6 +41,7 @@ class App extends React.Component {
       return (
         <div>
           <nav className="navbar">
+            <img src='../logo.png'/>
             <div className="col-md-6 offset-md-3">
               <div><Search btnHandler={this.btnHandler} txtHandler={this.txtHandler} keyUpHandler={this.keyUpHandler}/></div>
             </div>
