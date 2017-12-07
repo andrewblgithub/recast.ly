@@ -4,7 +4,7 @@ class App extends React.Component {
     this.state = {
       videos: [],
       video: {},
-      keyword: 'kirby nintendo'
+      keyword: 'corgis'
     };
     this.clickHandler = this.clickHandler.bind(this);
     this.btnHandler = this.btnHandler.bind(this);
