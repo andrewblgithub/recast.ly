@@ -2,9 +2,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videos: exampleVideoData,
-      video: exampleVideoData[0],
-      keyword: 'kirby'
+      videos: [],
+      video: {},
+      keyword: 'kirby nintendo'
     };
     this.clickHandler = this.clickHandler.bind(this);
     this.btnHandler = this.btnHandler.bind(this);
@@ -12,7 +12,7 @@ class App extends React.Component {
     this.txtHandler = this.txtHandler.bind(this);
   }
   componentDidMount() {
-    console.log('something');
+    this.props.searchYouTube(this.state.keyword, this.searchHandler);
   }
   clickHandler(e) {
     this.setState({
@@ -26,6 +26,7 @@ class App extends React.Component {
     this.setState({
       keyword: e
     });
+    this.props.searchYouTube(this.state.keyword, this.searchHandler);
   }
   searchHandler(e) {
     this.setState({
@@ -34,23 +35,27 @@ class App extends React.Component {
     });
   }
   render() {
-    return (
-      <div>
-        <nav className="navbar">
-          <div className="col-md-6 offset-md-3">
-            <div><Search btnHandler={this.btnHandler} txtHandler={this.txtHandler} keyUpHandler={this.keyUpHandler}/></div>
-          </div>
-        </nav>
-        <div className="row">
-          <div className="col-md-7">
-            <div><VideoPlayer video={this.state.video}/></div>
-          </div>
-          <div className="col-md-5">
-            <div><VideoList videos={this.state.videos} clickHandler = {this.clickHandler}/></div>
+    if (this.state.videos.length === 0) {
+      return <h1>Loading...</h1>;
+    } else {
+      return (
+        <div>
+          <nav className="navbar">
+            <div className="col-md-6 offset-md-3">
+              <div><Search btnHandler={this.btnHandler} txtHandler={this.txtHandler} keyUpHandler={this.keyUpHandler}/></div>
+            </div>
+          </nav>
+          <div className="row">
+            <div className="col-md-7">
+              <div><VideoPlayer video={this.state.video}/></div>
+            </div>
+            <div className="col-md-5">
+              <div><VideoList videos={this.state.videos} clickHandler = {this.clickHandler}/></div>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   } 
 }
 

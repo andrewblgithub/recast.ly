@@ -1,4 +1,4 @@
-var searchYouTube = (keyword, searchHandler) => {
+var searchYouTube = _.debounce((keyword, searchHandler) => {
   var keyword = keyword || 'kirby nintendo';
   let url = 'https://www.googleapis.com/youtube/v3/search/?q=' + 
       keyword + 
@@ -14,6 +14,6 @@ var searchYouTube = (keyword, searchHandler) => {
       console.error('FAILURE!', data);
     }
   });
-};
+}, 500);
 
 window.searchYouTube = searchYouTube;
