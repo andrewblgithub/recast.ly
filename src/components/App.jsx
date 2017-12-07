@@ -3,14 +3,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       videos: exampleVideoData,
-      currentVid: 0
+      video: exampleVideoData[0]
     };
+    console.log(this.state.video);
     this.clickHandler = this.clickHandler.bind(this);
   }
   clickHandler(e) {
-    console.log(e);
     this.setState({
-      currentVid: 2
+      video: e
     });
   }
   render() {
@@ -23,7 +23,7 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><VideoPlayer video={this.state.videos[this.state.currentVid]}/></div>
+            <div><VideoPlayer video={this.state.video}/></div>
           </div>
           <div className="col-md-5">
             <div><VideoList videos={this.state.videos} clickHandler = {this.clickHandler}/></div>
